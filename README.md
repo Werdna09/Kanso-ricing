@@ -2,179 +2,247 @@
 
 # K A N S O
 
-### 簡素 · The art of less.
+### 簡素 — The art of less.
 
-**A quiet desktop. Four spaces. One continuous landscape.**
+**Four workspaces. One uninterrupted landscape.**
 
-*An independently built desktop setup for KDE Plasma 6 and Wayland.*
+A personal desktop for **KDE Plasma 6 · Wayland**, built with **Quickshell, QML and C++20**.
 
-**C++20** · **Qt / QML** · **Quickshell** · **KWin** · **CMake** · **CachyOS**
+<br>
 
-[Philosophy](#philosophy) · [Features](#features) · [Architecture](#architecture) · [Build](#build-and-try) · [Artwork & credits](#artwork--credits)
+<img src="wallpaper/org.kanso.livinglandscape/contents/images/kanso-panorama.png" alt="Kanso's panoramic landscape spanning four virtual desktops; original illustrations by Artzeene" width="100%">
+
+<sub>The landscape behind Kanso. Original illustrations by Artzeene; panoramic adaptation for Kanso.</sub>
+
+<br><br>
+
+[**Explore**](#the-idea) &nbsp;·&nbsp; [**The landscape**](#four-desktops-one-landscape) &nbsp;·&nbsp; [**Features**](#the-desktop) &nbsp;·&nbsp; [**Installation**](#installation) &nbsp;·&nbsp; [**Credits**](#artwork--credits)
 
 </div>
 
 ---
 
-> **A desktop is a place, not a dashboard.** Kanso is inspired by Japanese minimalism: plenty of breathing room, a small number of carefully chosen colors, and controls that stay out of the way until they're needed.
+## The idea
 
-## Philosophy
+A desktop should feel like somewhere you want to spend time, not another thing asking for your attention.
 
-Kanso (簡素) is about keeping the useful parts and removing the noise. The panel shows what's worth knowing at a glance. The dock sits quietly at the edge of the screen. Four virtual desktops share one continuous landscape.
+Kanso takes its name from **簡素**, the Japanese idea of simplicity without unnecessary ornament. The design is built around warm paper tones, dark teal, a little motion, and plenty of empty space. There is a panel for the things worth knowing, a dock for the things worth opening, and very little else in the way.
 
-Kanso doesn't replace Plasma or KWin. It uses them. The shell is built with **Quickshell and QML**, with a small **C++20** executable handling system information and actions. Window management, desktop effects and the Wayland session remain KDE's job.
+Underneath, it's still KDE Plasma. KWin handles windows and virtual desktops; Quickshell handles the interface. Kanso connects the two, rather than trying to replace either one.
 
-## Features
+## Four desktops, one landscape
 
-| | Design | Implementation |
-|:--|:--|:--|
-| **01** | **Four connected workspaces** | KWin virtual desktops and a custom Plasma wallpaper plugin |
-| **02** | **Day / Night** | Coordinated KDE colors, terminal, Firefox, VS Code and lock-screen appearance |
-| **03** | **Quiet top panel** | Quickshell / QML controls for network, Bluetooth, audio, media, updates, notifications and system information |
-| **04** | **Discreet dock** | Auto-reveal behavior, running-app indicators and window previews |
-| **05** | **Native system core** | C++20 system status, keyboard locks, launcher, power actions, updates, window picker and icon management |
-| **06** | **Personalized workflow** | Rofi, Alacritty, Fish, Neovim and application theme integrations |
+The wallpaper isn't four unrelated pictures. It's a continuous scene that follows the active virtual desktop. Moving between workspaces reveals another part of the landscape while keeping KWin's native transitions intact.
 
-### Designed to stay out of the way
+<table>
+  <tr>
+    <td width="50%"><img src="kanso/living-landscape/wallpapers/Kanso-Workspace-01.jpg" alt="Artwork for workspace one" width="100%"></td>
+    <td width="50%"><img src="kanso/living-landscape/wallpapers/Kanso-Workspace-02.jpg" alt="Artwork for workspace two" width="100%"></td>
+  </tr>
+  <tr>
+    <td><sub><strong>01</strong> — The beginning</sub></td>
+    <td><sub><strong>02</strong> — Further along</sub></td>
+  </tr>
+  <tr>
+    <td><img src="kanso/living-landscape/wallpapers/Kanso-Workspace-03.jpg" alt="Artwork for workspace three" width="100%"></td>
+    <td><img src="kanso/living-landscape/wallpapers/Kanso-Workspace-04.jpg" alt="Artwork for workspace four" width="100%"></td>
+  </tr>
+  <tr>
+    <td><sub><strong>03</strong> — Another view</sub></td>
+    <td><sub><strong>04</strong> — The other end</sub></td>
+  </tr>
+</table>
 
-- Four workspace indicators and KWin's native transitions.
-- A dock that appears when you need it, without moving the layout around.
-- Day and Night modes, including an automatic time-based option.
-- Update notifications with a deliberate, interactive update flow.
-- No Python process required for the running panel, launcher or theme switching.
+The continuity comes from a custom **Plasma wallpaper plugin**, working with KWin's virtual-desktop state. These images show the landscape artwork, rather than screenshots of the panel or dock.
 
-## Architecture
+## Day / Night
 
-```text
-┌─────────────────────────────────────────────────────┐
-│                    KANSO UI                         │
-│             Quickshell · Qt · QML                   │
-│       Panel · Dock · Menus · Popups                │
-└───────────────────────┬─────────────────────────────┘
-                        │ processes / JSON
-┌───────────────────────▼─────────────────────────────┐
-│                 kanso-native                        │
-│                C++20 · CMake                       │
-│    Status · Themes · Icons · Windows · Actions      │
-└───────────────────────┬─────────────────────────────┘
-                        │ Linux /proc, /sys, KDE tools
-┌───────────────────────▼─────────────────────────────┐
-│           CachyOS / KDE Plasma 6 / KWin             │
-│            Wayland · D-Bus · systemd                │
-└─────────────────────────────────────────────────────┘
+Kanso has two appearances. Day uses a pale, paper-like palette; Night moves to muted blues and warmer, softer contrast. You can switch manually or let Kanso follow the time of day.
 
-       KDE Wallpaper Plugin → panoramic workspace
+<table>
+  <tr>
+    <td width="50%"><img src="kanso/assets/kanso-wallpaper.png" alt="Kanso Day wallpaper, with warm paper tones and a teal landscape" width="100%"></td>
+    <td width="50%"><img src="kanso/assets/kanso-wallpaper-night.png" alt="Kanso Night wallpaper, with the matching darker landscape" width="100%"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>DAY</strong><br><sub>Paper · warmth · daylight</sub></td>
+    <td align="center"><strong>NIGHT</strong><br><sub>Ink · quiet · dusk</sub></td>
+  </tr>
+</table>
+
+The change goes beyond the background. Kanso can coordinate KDE colors, its own UI, Alacritty, Firefox, VS Code and the lock screen. Automatic switching is time-based; the running shell uses the native C++ core to apply the changes.
+
+## The desktop
+
+| Part | What it does |
+| :--- | :--- |
+| **Panel** | Workspaces, clock, system information, network, Bluetooth, media, volume, brightness, battery, notifications and updates. |
+| **Dock** | An unobtrusive application dock with running-window indicators, previews and auto-reveal behavior. |
+| **Start menu** | Searchable applications, categories, favorites and system actions, built directly in QML. |
+| **Living Landscape** | A panoramic wallpaper that follows four KDE virtual desktops without replacing KWin's transitions. |
+| **Day / Night** | Manual and automatic appearance switching, with coordinated colors across supported applications. |
+| **Native Core** | System status, keyboard locks, Rofi, power actions, update launching, window selection, icon management and diagnostics. |
+| **Personal touches** | Kanso icon theme and configurations for tools such as Alacritty, Fish, Neovim and VS Code. |
+
+Nothing here is intended to replace KDE's window manager or system services. The dock, panel and menus belong to Quickshell; everything else stays where it makes sense.
+
+## Under the hood
+
+<div align="center">
+
+**QML on the surface. C++20 underneath. KDE at the foundation.**
+
+</div>
+
+```mermaid
+flowchart TB
+    A["Kanso interface<br/>Quickshell · Qt Quick · QML"]
+    B["kanso-native<br/>C++20 · CMake · OpenSSL"]
+    C["KDE Plasma 6 · KWin<br/>Wayland session and virtual desktops"]
+    D["Linux and system utilities<br/>/proc · /sys · D-Bus · external tools"]
+    E["Living Landscape<br/>Plasma wallpaper plugin"]
+    A -->|"Commands and status data"| B
+    A --> C
+    B --> D
+    C --> E
 ```
 
-The native core is an **on-demand executable**, not a permanently running service. Quickshell calls it when it needs system data or has an action to perform.
+The C++ core is a small, **on-demand executable** rather than a background daemon. Quickshell launches it for system information or an action. The UI itself is written in QML, with JavaScript where appropriate.
 
 <details>
-<summary><strong>Why is there still an install.py?</strong></summary>
+<summary><strong>And the Python?</strong></summary>
 
-`install.py` is the one Python script intentionally kept in the source tree. It is a standalone, setup-time installer, not part of the running desktop. The panel, Day/Night synchronization, launcher and system actions use C++20 and QML.
+<br>
 
-This is a personal project, and a few older administrative features have not been carried over: the former Python-based tools for initial login configuration, some application themes and their restore workflows are **not included** in this native release. Existing configurations can still be used, but this isn't a drop-in replacement for every old maintenance command.
+There is one Python file in the repository: [`kanso/install.py`](kanso/install.py).
+
+It runs **only during installation**. The panel, launcher, Day/Night switching and native system commands don't depend on a running Python process. I kept the standalone installer because replacing working setup code just to eliminate one file wasn't worth the complexity.
+
+Some older maintenance tools from earlier iterations — including parts of first-time login configuration and application-theme restoration — are not part of this native release.
 
 </details>
 
-## Build and try
+## Installation
 
-**Target:** CachyOS / Arch Linux, KDE Plasma 6, Wayland, Quickshell, a C++20 compiler, CMake and OpenSSL development libraries. Some features also use Rofi, Alacritty, `kdotool`, `qdbus6`, `brightnessctl`, `checkupdates` and `paru`.
+Kanso was developed on **CachyOS with KDE Plasma 6 and Wayland**. It should be approachable on other Arch-based systems, but it is still a personal rice, not a turn-key desktop distribution.
 
-Kanso is my desktop configuration, shared as source rather than a universal installer. It expects to live in `~/Rice/kanso`. Back up your existing KDE and Quickshell settings first, and don't run a second Quickshell panel alongside it.
+**Before you begin:** back up your KDE settings and any existing Quickshell configuration. Kanso expects `~/Rice/kanso`; don't launch a second copy alongside another Quickshell panel.
+
+### 1. Get Kanso
 
 ```bash
-# Get the source
 mkdir -p ~/Projects ~/Rice
 git clone https://github.com/Werdna09/Kanso-ricing.git ~/Projects/Kanso-ricing
 
-# Install the shell files into ~/Rice/kanso.
-# The installer refuses to replace an existing installation by default.
+# Standalone installer; refuses to overwrite an existing Kanso by default.
 python3 ~/Projects/Kanso-ricing/kanso/install.py
+```
 
-# Build the native command-line core (no sudo needed)
+### 2. Build the native core
+
+You'll need a **C++20 compiler**, **CMake 3.20+** and **OpenSSL development files**. Quickshell and KDE Plasma 6 are required for the desktop itself. Depending on which controls you use, also install the corresponding tools (for example Rofi, Alacritty, `kdotool`, `qdbus6`, `brightnessctl`, `checkupdates` and `paru`).
+
+```bash
 cmake -S ~/Rice/kanso/native -B ~/Rice/kanso/native/build \
   -DCMAKE_BUILD_TYPE=Release
 cmake --build ~/Rice/kanso/native/build --parallel 2
 install -Dm755 ~/Rice/kanso/native/build/kanso-native \
   ~/Rice/kanso/native/bin/kanso-native
+```
 
-# Check the native core
+Check that the binary works before starting the shell:
+
+```bash
 ~/Rice/kanso/native/bin/kanso-native status
 ~/Rice/kanso/native/bin/kanso-native doctor preflight
 ~/Rice/kanso/native/bin/kanso-native doctor audit
+```
 
-# Install the wallpaper plugin code
+### 3. Install Living Landscape
+
+The wallpaper plugin is separate from the Quickshell configuration:
+
+```bash
 mkdir -p ~/.local/share/plasma/wallpapers
 cp -a ~/Projects/Kanso-ricing/wallpaper/org.kanso.livinglandscape \
   ~/.local/share/plasma/wallpapers/
+```
 
-# Select the installed Living Landscape wallpaper in KDE, then start the shell:
+Select **Living Landscape** in KDE's wallpaper settings. The day and night artwork is bundled in the respective Kanso and wallpaper-plugin folders. To reproduce the four-desktop view, configure four virtual desktops in KDE.
+
+### 4. Start the shell
+
+```bash
 qs -p ~/Rice/kanso
 ```
 
-**Wallpaper files are included in this release.** The original illustrations are by Artzeene; I combined them into a continuous panorama and prepared the matching Night version. See [ARTWORK.md](ARTWORK.md) for attribution and artwork rights. These assets are separate from the source code and must not be treated as freely licensed simply because they are on GitHub.
+Try it manually before adding it to autostart. Setting up KDE shortcuts, application themes and other personal integrations may require additional local configuration; the installer doesn't rewrite your entire desktop session.
 
-The installer only copies the Kanso shell. The wallpaper plugin and any system-wide settings must be configured separately; nothing is silently changed for you.
+<details>
+<summary><strong>Native command reference</strong></summary>
 
-### Native commands
+<br>
+
+These examples use `~/Rice/kanso/native/bin/kanso-native` as the executable path:
 
 ```bash
-# Replace this prefix with ~/Rice/kanso/native/bin/kanso-native
-kanso-native status                   # CPU / RAM information
-kanso-native locks                    # Caps / Num Lock status
-kanso-native rofi                     # application launcher
-kanso-native windows                  # native window picker
-kanso-native icons status             # inspect installed Kanso icons
-kanso-native shortcut audit           # inspect launcher registration
-kanso-native updates --print          # show update command without running it
-kanso-native power reboot --dry-run   # inspect a power action; do not reboot
-kanso-native doctor audit             # check for leftover Python references
+~/Rice/kanso/native/bin/kanso-native status
+~/Rice/kanso/native/bin/kanso-native locks
+~/Rice/kanso/native/bin/kanso-native rofi
+~/Rice/kanso/native/bin/kanso-native windows
+~/Rice/kanso/native/bin/kanso-native icons status
+~/Rice/kanso/native/bin/kanso-native shortcut audit
+~/Rice/kanso/native/bin/kanso-native updates --print
+~/Rice/kanso/native/bin/kanso-native power reboot --dry-run
+~/Rice/kanso/native/bin/kanso-native doctor audit
 ```
 
-Power actions in the interface require confirmation. The native executable builds without root privileges.
+`--dry-run` inspects a power action without executing it. System actions in the UI use confirmation where appropriate.
 
-## Repository map
+</details>
+
+## Repository layout
 
 ```text
 Kanso-ricing/
 ├── kanso/
-│   ├── shell.qml                 Quickshell entry point
-│   ├── components/              Panel, dock and common widgets
-│   ├── popups/                  Menus and desktop controls
-│   ├── services/                Data and KDE integrations
-│   ├── native/
-│   │   ├── src/                 C++20 implementation
-│   │   └── CMakeLists.txt       Native build
-│   ├── config/                  Application appearance
-│   ├── icon-theme/              Kanso SVG icon theme
-│   └── install.py               Optional Python setup script
+│   ├── shell.qml                  Quickshell entry point
+│   ├── components/               Panel, dock and common widgets
+│   ├── popups/                   Start menu and system controls
+│   ├── services/                 KDE and system integrations
+│   ├── native/                   C++20 source and CMake build
+│   ├── config/                   Application themes and settings
+│   ├── icon-theme/               Kanso SVG icons
+│   ├── living-landscape/         Individual workspace artwork
+│   └── install.py                Setup-time installer
 ├── wallpaper/
-│   └── org.kanso.livinglandscape/  KDE wallpaper plugin and panorama assets
-├── ARTWORK.md                   Artwork credit and setup notes
+│   └── org.kanso.livinglandscape/   Plasma wallpaper plugin
+├── ARTWORK.md                    Art attribution and usage notes
 └── README.md
 ```
 
 ## Artwork & credits
 
-**The original wallpapers are paid artwork by Artzeene.** I assembled those images into a four-workspace panorama and made a matching night treatment for my personal setup. **The illustrations themselves belong to Artzeene**, not to this project.
+The landscape shown above uses **original illustrations by [Artzeene](ARTWORK.md)**. I purchased the artwork, adapted it into the four-workspace panorama and prepared a corresponding night treatment. The underlying illustrations are Artzeene's work, not mine.
 
-The wallpaper assets **are included** in this release. They are not my original illustrations and are not automatically open-source or free to redistribute. Permission to bundle the originals and modified panoramas must come from the artist's license or explicit authorization; a purchase and an attribution alone do not supply that permission. See [ARTWORK.md](ARTWORK.md) for the individual asset paths and rights information.
+These images are included in this repository, but **the artwork is separate from the software source**. Its presence here does not grant others permission to copy, modify or redistribute it. The applicable permissions depend on the artist's license or authorization; see [ARTWORK.md](ARTWORK.md).
 
-Kanso is an independent desktop customization project, not affiliated with Artzeene, KDE, Quickshell or CachyOS. Third-party icons and application resources retain their own rights; please check the relevant licenses before redistributing them.
+Kanso is an independent personal project, unaffiliated with KDE, Quickshell, CachyOS or Artzeene. Product names, icons and third-party assets belong to their respective owners.
 
-## Contributing
+## Project notes
 
-Bug reports and useful suggestions are welcome. If you change the UI, try to keep its spacing and KWin behavior intact. Please don't add third-party artwork without permission to redistribute it, or include personal settings, tokens or backups in contributions.
+Kanso is shared because I enjoy building and refining my own desktop, and because some of the pieces may be useful to others. Feedback, bug reports and thoughtful changes are welcome — particularly around portability, reliability and the native core.
 
-The repository does not currently include a general-purpose software license. Source availability alone does not grant permission to redistribute or relicense its contents.
+Please keep the visual restraint, preserve KWin's behavior and don't commit personal configuration files or artwork you aren't allowed to redistribute. The repository currently has **no general-purpose source-code license**; public access alone doesn't grant reuse or redistribution rights.
 
 ---
 
 <div align="center">
 
-**簡素** · *Keep what matters. Leave room for everything else.*
+### 簡素
 
-Made with care for quiet desktops.
+**Keep what matters. Leave room for everything else.**
+
+<sub>Kanso · built for the space between windows.</sub>
 
 </div>
