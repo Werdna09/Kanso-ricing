@@ -1,0 +1,35 @@
+{
+  "name": "kanso-dev-theme",
+  "displayName": "Kanso \u2014 Day & Night",
+  "description": "Kanso developer themes for VS Code / Code OSS",
+  "version": "1.0.0",
+  "publisher": "werdna09",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Kanso Day",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kanso-day-color-theme.json"
+      },
+      {
+        "label": "Kanso Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kanso-night-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "kanso-dev-icons",
+        "label": "Kanso Icons",
+        "path": "./themes/kanso-file-icons.json"
+      }
+    ]
+  }
+}

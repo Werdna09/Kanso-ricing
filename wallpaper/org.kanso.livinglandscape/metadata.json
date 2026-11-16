@@ -1,0 +1,23 @@
+{
+  "KPackageStructure": "Plasma/Wallpaper",
+  "KPlugin": {
+    "Authors": [
+      {
+        "Name": "Kanso Living Landscape"
+      }
+    ],
+    "Category": "",
+    "Description": "Four-workspace panorama with synchronized day and night artwork; no particle animations",
+    "Icon": "preferences-desktop-wallpaper",
+    "Id": "org.kanso.livinglandscape",
+    "License": "MIT",
+    "Name": "Kanso · Živá krajina / Day & Night",
+    "ServiceTypes": [
+      "Plasma/Wallpaper"
+    ],
+    "Version": "2.0.0",
+    "Website": ""
+  },
+  "X-KDE-ParentApp": "org.kde.plasmashell",
+  "X-Plasma-API-Minimum-Version": "6.0"
+}

@@ -1,0 +1,13 @@
+/* Restrict styling to Firefox's own start page, not arbitrary websites. */
+@import url("kanso-vars.css");
+@-moz-document url("about:home"), url("about:newtab") {
+  :root, body, .outer-wrapper {
+    background: var(--kanso-newtab-bg, #F7E9C9) !important;
+    color: var(--kanso-newtab-text, #1D3D46) !important;
+    font-family: "Noto Sans", "Inter", sans-serif !important;
+  }
+  .search-wrapper .search-handoff-button, .search-wrapper input,
+  .top-site-outer .tile, .card-outer, .context-menu {
+    border-radius: 12px !important;
+  }
+}

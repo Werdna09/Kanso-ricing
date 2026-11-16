@@ -1,0 +1,28 @@
+/* Kanso · Spotify / Spicetify; cosmetic overrides only. */
+:root {
+  --kanso-ui-radius: 12px;
+  --kanso-ui-line: 1px solid color-mix(in srgb, var(--spice-text) 18%, transparent);
+}
+body, #main, .Root, .Root__main-view {
+  font-family: "Noto Sans", "Inter", system-ui, sans-serif !important;
+  color: var(--spice-text) !important;
+}
+.main-yourLibraryX-library,
+.Root__nav-bar, .Root__now-playing-bar,
+.main-nowPlayingBar-nowPlayingBar { background: var(--spice-sidebar) !important; }
+.main-topBar-background, .main-view-container,
+.main-home-homeHeader { background: var(--spice-main) !important; }
+.main-card-card, .main-cardImage-imageWrapper, .main-trackList-trackListRow,
+.main-playlistEditDetailsModal-container, .main-entityHeader-container,
+.main-yourLibraryX-listItem { border-radius: var(--kanso-ui-radius) !important; }
+.main-card-card:hover, .main-trackList-trackListRow:hover {
+  background: var(--spice-card) !important;
+}
+.main-topBar-topbarContent, .Root__now-playing-bar {
+  border-color: var(--spice-misc) !important;
+}
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid var(--spice-button) !important;
+  outline-offset: 2px !important;
+}
+/* Prefer retaining native album artwork, player controls and library layout. */

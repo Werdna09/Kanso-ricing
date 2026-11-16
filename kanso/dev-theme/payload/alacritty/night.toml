@@ -1,0 +1,47 @@
+# Managed Kanso developer palette; modify theme in ~/Rice/kanso/dev-theme instead.
+
+[colors.primary]
+background = "#12262E"
+foreground = "#EADFCC"
+dim_foreground = "#A3B7B2"
+bright_foreground = "#F6EDDA"
+
+[colors.cursor]
+text = "#12262E"
+cursor = "#D5CFAD"
+
+[colors.vi_mode_cursor]
+text = "#12262E"
+cursor = "#F6EDDA"
+
+[colors.selection]
+text = "#EADFCC"
+background = "#31525D"
+
+[colors.search.matches]
+foreground = "#12262E"
+background = "#E4CCA3"
+
+[colors.search.focused_match]
+foreground = "#12262E"
+background = "#D5CFAD"
+
+[colors.normal]
+black = "#0D2027"
+red = "#D79B96"
+green = "#9FBEA5"
+yellow = "#E4CCA3"
+blue = "#99BEC9"
+magenta = "#C6A9C6"
+cyan = "#8DC5BF"
+white = "#EADFCC"
+
+[colors.bright]
+black = "#A3B7B2"
+red = "#F0B3AA"
+green = "#BED6BC"
+yellow = "#F5DBA5"
+blue = "#BDD8E2"
+magenta = "#DEC6DE"
+cyan = "#B4DCDA"
+white = "#F6EDDA"

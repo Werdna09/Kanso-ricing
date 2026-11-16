@@ -1,0 +1,52 @@
+{
+  "iconDefinitions": {
+    "_folder": {
+      "iconPath": "../icons/folder.svg"
+    },
+    "_text": {
+      "iconPath": "../icons/text.svg"
+    },
+    "_python": {
+      "iconPath": "../icons/python.svg"
+    },
+    "_tex": {
+      "iconPath": "../icons/tex.svg"
+    },
+    "_c": {
+      "iconPath": "../icons/c.svg"
+    },
+    "_cpp": {
+      "iconPath": "../icons/cpp.svg"
+    },
+    "_json": {
+      "iconPath": "../icons/json.svg"
+    },
+    "_md": {
+      "iconPath": "../icons/markdown.svg"
+    },
+    "_lua": {
+      "iconPath": "../icons/lua.svg"
+    }
+  },
+  "folder": "_folder",
+  "folderExpanded": "_folder",
+  "file": "_text",
+  "fileExtensions": {
+    "py": "_python",
+    "tex": "_tex",
+    "sty": "_tex",
+    "cls": "_tex",
+    "bib": "_tex",
+    "c": "_c",
+    "h": "_c",
+    "cpp": "_cpp",
+    "hpp": "_cpp",
+    "cc": "_cpp",
+    "hh": "_cpp",
+    "json": "_json",
+    "jsonc": "_json",
+    "md": "_md",
+    "markdown": "_md",
+    "lua": "_lua"
+  }
+}

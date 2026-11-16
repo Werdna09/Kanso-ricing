@@ -1,0 +1,38 @@
+/* Kanso — quiet, keyboard-first launcher */
+configuration {
+    modes: [ drun, run, window ];
+    show-icons: true;
+    drun-display-format: "{name}";
+    terminal: "alacritty";
+    matching: "fuzzy";
+    sort: true;
+}
+* {
+    paper: #FDECC7;
+    ink: #1D414A;
+    subtle: #5A777A;
+    line: #AAC0B6;
+    hover: #E8D9B9;
+    clear: #00000000;
+    background-color: @paper;
+    text-color: @ink;
+    font: "Noto Sans 12";
+}
+window {
+    location: center; anchor: center; width: 580px;
+    background-color: @paper;
+    border: 1px; border-color: @line;
+    border-radius: 13px; padding: 17px;
+}
+mainbox { children: [ inputbar, listview, mode-switcher ]; spacing: 13px; }
+inputbar { children: [ prompt, entry ]; spacing: 12px; padding: 12px; background-color: @hover; border-radius: 8px; }
+prompt { text-color: @subtle; background-color: @clear; }
+entry { placeholder: "Hledat aplikaci…"; placeholder-color: @subtle; cursor-color: @ink; background-color: @clear; }
+listview { lines: 7; fixed-height: true; columns: 1; spacing: 3px; padding: 2px; scrollbar: false; background-color: @paper; }
+element { children: [ element-icon, element-text ]; spacing: 12px; padding: 9px; border-radius: 7px; background-color: @clear; }
+element selected.normal, element selected.active { background-color: @hover; text-color: @ink; }
+element-icon { size: 24px; background-color: @clear; }
+element-text { vertical-align: 0.5; background-color: @clear; }
+mode-switcher { spacing: 8px; background-color: @paper; }
+button { padding: 6px; border-radius: 6px; background-color: @clear; text-color: @subtle; }
+button selected { background-color: @ink; text-color: @paper; }

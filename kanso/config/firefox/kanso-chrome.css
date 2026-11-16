@@ -1,0 +1,59 @@
+/* Kanso · Firefox chrome | respects every Firefox control (no toolbar hiding) */
+@import url("kanso-vars.css");
+:root {
+  --toolbar-bgcolor: var(--kanso-surface) !important;
+  --toolbar-color: var(--kanso-text) !important;
+  --lwt-accent-color: var(--kanso-bg) !important;
+  --lwt-text-color: var(--kanso-text) !important;
+  --lwt-selected-tab-background-color: var(--kanso-paper) !important;
+  --lwt-toolbar-field-background-color: var(--kanso-field) !important;
+  --lwt-toolbar-field-color: var(--kanso-text) !important;
+  --lwt-toolbar-field-border-color: var(--kanso-line) !important;
+  --lwt-toolbar-field-focus: var(--kanso-paper) !important;
+  --lwt-toolbar-field-focus-color: var(--kanso-paper-text) !important;
+  --lwt-toolbar-field-focus-border-color: var(--kanso-accent) !important;
+  --lwt-toolbar-field-highlight: var(--kanso-accent) !important;
+  --lwt-toolbar-field-highlight-text: var(--kanso-bg) !important;
+  --arrowpanel-background: var(--kanso-surface) !important;
+  --arrowpanel-color: var(--kanso-text) !important;
+  --arrowpanel-border-color: var(--kanso-line) !important;
+  --panel-background: var(--kanso-surface) !important;
+  --panel-color: var(--kanso-text) !important;
+  --tab-selected-bgcolor: var(--kanso-paper) !important;
+  --tab-selected-textcolor: var(--kanso-paper-text) !important;
+  --toolbar-field-focus-border-color: var(--kanso-accent) !important;
+  --toolbarbutton-icon-fill: var(--kanso-text) !important;
+  --toolbarbutton-icon-fill-attention: var(--kanso-accent) !important;
+  --focus-outline-color: var(--kanso-accent) !important;
+}
+#navigator-toolbox {
+  background: var(--kanso-bg) !important;
+  border-bottom: 1px solid var(--kanso-line) !important;
+}
+#TabsToolbar { background: var(--kanso-bg) !important; }
+#nav-bar, #PersonalToolbar {
+  background: var(--kanso-surface) !important;
+  box-shadow: none !important;
+}
+.tabbrowser-tab .tab-background {
+  border-radius: 9px 9px 2px 2px !important;
+  margin-block: 3px 0 !important;
+}
+.tabbrowser-tab[selected] .tab-background {
+  background: var(--kanso-paper) !important;
+  box-shadow: inset 0 2px 0 var(--kanso-accent) !important;
+}
+.tabbrowser-tab[selected] .tab-label { color: var(--kanso-paper-text) !important; }
+#urlbar-background {
+  background: var(--kanso-field) !important;
+  border: 1px solid var(--kanso-line) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+#urlbar[focused] #urlbar-background,
+#urlbar[open] #urlbar-background { border-color: var(--kanso-accent) !important; }
+#urlbar-input { font-family: "Noto Sans", "Inter", sans-serif !important; }
+#urlbar .urlbarView, panel, menupopup { color: var(--kanso-text) !important; }
+#sidebar-box { background: var(--kanso-surface) !important; }
+#sidebar-header { border-bottom: 1px solid var(--kanso-line) !important; }
+#downloadsPanel, #appMenu-popup { --arrowpanel-background: var(--kanso-surface) !important; }
